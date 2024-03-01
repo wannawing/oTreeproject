@@ -1,0 +1,86 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{{ block title }}
+    <center>
+        {% if Constants.treatment == "T1" or Constants.treatment == "T3" %}
+            <img src="{% static 'account.png' %}" width="100cm">实验室账户余额：{{player.account}}个实验币
+        {% else %}
+
+        {% endif %}
+    </center>
+{{ endblock }}
+
+{{ block content }}
+
+
+<div class="card bg-light m-3">
+    <div class="card-header" align="center">
+        <font size="5" color="black">
+        猜测
+        </font>
+    </div>
+    <div class="card-body"><font size="5" color="black">
+        {% if Constants.treatment == "T1" %}
+            请你猜测同组B告知你项目的价格为是多少个实验币。若你猜测正确，你的实验室账户可获得3个实验币的额外收益（实验最后告知）。
+        {% elif Constants.treatment == "T2" %}
+        <p>
+            你和同组参与者B都知道单个项目买价为10个实验币。
+        </p>
+        <p>
+            下面请你猜测B决定你买该项目你投入X个实验币。
+        </p>
+        <p>
+            如果B决定你买该项目你投入X个实验币，那么你的剩余本金为20-X个实验币，B替你购买项目的收益为X-10个实验币（收益计算具体见纸质说明）。
+        </p>
+        <p>
+            若你猜测正确，你可获得3个实验币的额外收益，若你的猜测值与实际值相差等于1，你可获得1个实验币的额外收益（实验最后告知）。
+        </p>
+        {% elif Constants.treatment == "T4" %}
+        <p>
+            你和同组参与者B都知道单个项目卖价为20个实验币。
+        </p>
+        <p>
+            下面请你猜测B决定你卖该项目你获得Y个实验币。
+            如果B决定你卖该项目你获得Y个实验币，那么你完成项目的净收入为Y-10个实验币，B替你卖出项目的收益为20-Y个实验币（收益计算具体见纸质说明）。
+        </p>
+        <p>
+            若你猜测正确，你可获得3个实验币的额外收益，若你的猜测值与实际值相差等于1，你可获得1个实验币的额外收益（实验最后告知）。
+        </p>
+        {% elif Constants.treatment == "T5" %}
+            项目的价格区间为10至20个实验币，
+            下面请你猜测同组B告诉你买该项目你支出的X个实验币为多少。若你猜测正确，你可获得3个实验币的额外收益（实验最后告知）。
+        {% elif Constants.treatment == "T6" %}
+            项目的收益区间为10至20个实验币，
+            下面请你猜测同组B告诉你卖该项目你获得的Y个实验币为多少。若你猜测正确，你的实验室账户可获得3个实验币的额外收益（实验最后告知）。
+        {% elif Constants.treatment == "T3" %}
+            你和B均完成了文本转换项目。
+            任务的收益区间为10至20个实验币，
+            下面请你猜测同组B告诉你卖该项目你获得的Y个实验币为多少。若你猜测正确，你可获得3个实验币的额外收益（实验最后告知）。
+        {% else %}
+
+        {% endif %}
+        </font>
+        <table class="tg" width="900">
+          <tr>
+            <td class="tg-baqh" width="10%">
+                <font size="5" color="black">
+                {% if Constants.treatment == "T1" or Constants.treatment == "T5" or Constants.treatment == "T2"%}
+                    你猜测B决定你买该项目你投入
+                {% else %}
+                    你猜测B决定你卖该项目你获得
+                {% endif %}
+                </font>
+            </td>
+            <td class="tg-s6z3" width="3%">{% formfield player.a_guess_b %}</td>
+            <td class="tg-baqh" width="14%">
+                <font size="5" color="black">个实验币（请输入[10,20]之间的整数）。</font></td>
+
+          </tr>
+        </table>
+    </div>
+</div>
+
+<center><input type="submit" id="bt" class="otree-btn-next btn btn-primary" value="下一步" />
+</center>
+{{ endblock }}

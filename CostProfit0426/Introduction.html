@@ -1,0 +1,74 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{{ block title }}
+    <center> </center>
+{{ endblock }}
+
+{{ block content }}
+<div class="card bg-light m-3">
+<div class="card-body">
+    <center>
+    <p><font size="5" color="black">
+        你与其他参与者将被随机分组，每组2人，你在组内的身份随机决定为<br>参与者A或者参与者B。
+    </font></p>
+
+
+    <p>
+        <font size="4" color="black">
+                <br>
+                整个实验分成5个部分，第1部分为主实验，第2、3部分分别完成一个决策，
+                <br>
+                第4部分为调查问卷，第5部分为实验结果。
+                <br>
+
+        </font>
+    </center>
+        <font size="4" color="black">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;其中，主实验分2阶段。
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <style>
+                .custom-list {
+                list-style-type: disc;
+                padding-left: 8em; /* 调整缩进的大小 */
+                text-indent: 0em; /* 将黑点与文字一起缩进 */
+                }
+                </style>
+                <ul class="custom-list">
+                <li>阶段1：完成数0任务
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li>阶段2：完成1项文本转换项目并进行决策
+
+                </ul>
+
+
+                </ul>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <center>
+                <br>
+                你的收益会在全部实验结束后展现在电脑页面上。
+                <br>
+                我们将支付你的实验报酬。
+    </center>
+
+    <center>
+
+        </font>
+        <br>
+        <p>
+        <font size="4" color="red">
+            请点击下一步完成随机分组和角色确定。
+        </font>
+    </p>
+    </center>
+
+
+</div>
+</div>
+
+<center><input type="submit" id="bt" class="otree-btn-next btn btn-primary" value="下一步" />
+</center>
+{{ endblock }}

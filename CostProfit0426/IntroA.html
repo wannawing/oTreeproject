@@ -1,0 +1,530 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{{ block title }}
+    <center>
+        {% if Constants.treatment == "T1" or Constants.treatment == "T3" %}
+            <img src="{% static 'account.png' %}" width="100cm">实验室账户余额：{{player.account}}个实验币
+        {% else %}
+
+        {% endif %}
+    </center>
+{{ endblock }}
+
+{{ block content }}
+<div class="card bg-light m-3">
+<div class="card-body">
+
+    <p><font size="5" color="black">
+        {% if Constants.treatment == "T1" %}
+            你作为参与者A，本阶段你和同组参与者B均需要从个人的实验室账户中拿出10到20个实验币购买文本转换任务，你和B都知道完成任务的收益为20个实验币。
+        {% elif Constants.treatment == "T2" %}
+            <p>
+            本阶段，你（作为参与者A）与参与者B各自完成1个文本转换项目来获得收入。
+            </p>
+        {% elif Constants.treatment == "T4" %}
+            <p>
+            本阶段，你（作为参与者A）与参与者B各自完成1个文本转换项目来获得收入。
+            </p>
+        {% elif Constants.treatment == "T5" %}
+            <p>
+            本阶段，你（作为参与者A）与参与者B各自完成1个文本转换项目来获得收入。
+            </p>
+        {% elif Constants.treatment == "T6" %}
+            <p>
+            本阶段，你（作为参与者A）与参与者B各自完成1个文本转换项目来获得收入。
+            </p>
+        {% else %}
+
+        {% endif %}
+
+    </font>
+
+        <font size="5" color="black">
+            {% if Constants.treatment == "T1" %}
+                由于你只知道任务的价格是10到20个实验币，你需从你的实验室账户中拿出20个实验币预交至B的实验室账户中。
+                B会告知你任务的价格是x个实验币，同时从B的实验室账户中返回20-x个实验币至你的实验室账户。
+                之后，B从他的实验室账户中花费实验币替你购买1个文本转换任务。
+            {% elif Constants.treatment == "T2" %}
+            <p>
+                B为你和自己向实验组织者分别购买1个项目，买价均为10个实验币，<font size="5" color="red">B决定你投入X个实验币，其中10&le;X&le;20</font>。待你和B分别完成项目后，由B向实验组织者出售这两个项目，卖价均为20个实验币。
+            </p>
+                <p>
+                收入计算如下：
+                </p>
+                <style>
+                .tg-baqh, .tg-s6z3 {
+                font-size: 16px;
+                text-align: center;
+                border: 1px solid black;  /* 新增：为单元格添加边框 */
+                }
+                .first-column {
+                padding-right: 20px;  /* 新增：增加第一列右侧的内边距 */
+                }
+                .tg {
+                margin-left: auto;
+                margin-right: auto;
+                height: 150px; /* 设置表格的高度 */
+                }
+                .last-column {
+                font-weight: bold;
+                }
+                </style>
+                <table class="tg" width="880" hight = "200">
+                  <tr>
+                      <td class="tg-baqh">角色</td>
+                      <td class="tg-s6z3">项目投入支出</td>
+                      <td class="tg-baqh">剩余本金=20-<br>项目投入支出</br></td>
+                      <td class="tg-baqh">项目<br>卖出所得</br></td>
+                      <td class="tg-baqh">完成项目收入=剩余<br>本金+项目卖出所得</br></td>
+                      <td class="tg-baqh last-column">总收入=完成项目收入</td>
+                  </tr>
+                  <tr>
+                       <td class="tg-baqh">A</td>
+                      <td class="tg-s6z3">X</td>
+                      <td class="tg-baqh">20-X</td>
+                      <td class="tg-baqh">20</td>
+                      <td class="tg-baqh">（20-X）+20</td>
+                      <td class="tg-baqh last-column">（20-X）+20</td>
+                  </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                      <td class="tg-baqh">角色</td>
+                      <td class="tg-s6z3">项目投入支出</td>
+                      <td class="tg-baqh">剩余本金=20-<br>项目投入支出</br></td>
+                      <td class="tg-baqh">项目<br>卖出所得</br></td>
+                      <td class="tg-baqh">完成项目收入=剩余<br>本金+项目卖出所得</br></td>
+                        <td class="tg-baqh">替A购买项目<br>收益</br></td>
+                      <td class="tg-baqh last-column">总收入=完成项目收入<br>+替A购买项目收益</br></td>
+                  </tr>
+                  <tr>
+                      <td class="tg-baqh">B</td>
+                      <td class="tg-s6z3">10</td>
+                      <td class="tg-baqh">20-10</td>
+                      <td class="tg-baqh">20</td>
+                      <td class="tg-baqh">（20-10）+20</td>
+                      <td class="tg-baqh">X-10</td>
+                      <td class="tg-baqh last-column">[(20-10)+20]+(X-10)</td>
+                  </tr>
+                </table>
+            {% elif Constants.treatment == "T4" %}
+            <p>
+                B为你和自己向实验组织者分别购买1个项目，买价均为10个实验币，待你和B分别完成项目后，由B向实验组织者出售这两个项目，卖价均为20个实验币。<font size="5" color="red">B决定你获得Y个实验币，其中10&le;Y&le;20</font>。
+            </p>
+                <p>
+                收入计算如下：
+                </p>
+                <style>
+                .tg-baqh, .tg-s6z3 {
+                font-size: 16px;
+                text-align: center;
+                border: 1px solid black;  /* 新增：为单元格添加边框 */
+                }
+                .first-column {
+                padding-right: 20px;  /* 新增：增加第一列右侧的内边距 */
+                }
+                .tg {
+                margin-left: auto;
+                margin-right: auto;
+                height: 150px; /* 设置表格的高度 */
+                }
+                .last-column {
+                font-weight: bold;
+                }
+                </style>
+                <table class="tg" width="880" hight = "200">
+                  <tr>
+                      <td class="tg-baqh">角色</td>
+                      <td class="tg-s6z3">项目投入支出</td>
+                      <td class="tg-baqh">剩余本金=20-<br>项目投入支出</br></td>
+                      <td class="tg-baqh">项目<br>卖出所得</br></td>
+                      <td class="tg-baqh">完成项目收入=剩余<br>本金+项目卖出所得</br></td>
+                      <td class="tg-baqh last-column">总收入=完成项目收入</td>
+                  </tr>
+                  <tr>
+                       <td class="tg-baqh">A</td>
+                      <td class="tg-s6z3">10</td>
+                      <td class="tg-baqh">20-10</td>
+                      <td class="tg-baqh">Y</td>
+                      <td class="tg-baqh">（20-10）+Y</td>
+                      <td class="tg-baqh last-column">（20-10）+Y</td>
+                  </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                      <td class="tg-baqh">角色</td>
+                      <td class="tg-s6z3">项目投入支出</td>
+                      <td class="tg-baqh">剩余本金=20-<br>项目投入支出</br></td>
+                      <td class="tg-baqh">项目<br>卖出所得</br></td>
+                      <td class="tg-baqh">完成项目收入=剩余<br>本金+项目卖出所得</br></td>
+                        <td class="tg-baqh">替A卖出项目<br>收益</br></td>
+                      <td class="tg-baqh last-column">总收入=完成项目收入<br>+替A卖出项目收益</br></td>
+                  </tr>
+                  <tr>
+                      <td class="tg-baqh">B</td>
+                      <td class="tg-s6z3">10</td>
+                      <td class="tg-baqh">20-10</td>
+                      <td class="tg-baqh">20</td>
+                      <td class="tg-baqh">（20-10）+20</td>
+                      <td class="tg-baqh">20-Y</td>
+                      <td class="tg-baqh last-column">[(20-10)+20]+(20-Y)</td>
+                  </tr>
+                </table>
+            {% elif Constants.treatment == "T5" %}
+            <p>
+                B为你和自己向实验组织者分别购买1个项目，B知道真实买价，你只知道一个项目的卖家区间为[10,20]个实验币，<font size="5" color="red">B决定你投入X个实验币，其中10&le;X&le;20</font>。待你和B分别完成项目后，由B向实验组织者出售这两个项目，卖价均为20个实验币。
+            </p>
+                <p>
+                收入计算如下：
+                </p>
+                <style>
+                .tg-baqh, .tg-s6z3 {
+                font-size: 16px;
+                text-align: center;
+                border: 1px solid black;  /* 新增：为单元格添加边框 */
+                }
+                .first-column {
+                padding-right: 20px;  /* 新增：增加第一列右侧的内边距 */
+                }
+                .tg {
+                margin-left: auto;
+                margin-right: auto;
+                height: 150px; /* 设置表格的高度 */
+                }
+                .last-column {
+                font-weight: bold;
+                }
+                </style>
+                <table class="tg" width="880" hight = "200">
+                  <tr>
+                      <td class="tg-baqh">角色</td>
+                      <td class="tg-s6z3">项目投入支出</td>
+                      <td class="tg-baqh">剩余本金=20-<br>项目投入支出</br></td>
+                      <td class="tg-baqh">项目<br>卖出所得</br></td>
+                      <td class="tg-baqh">完成项目收入=剩余<br>本金+项目卖出所得</br></td>
+                      <td class="tg-baqh last-column">总收入=完成项目收入</td>
+                  </tr>
+                  <tr>
+                       <td class="tg-baqh">A</td>
+                      <td class="tg-s6z3">X</td>
+                      <td class="tg-baqh">20-X</td>
+                      <td class="tg-baqh">20</td>
+                      <td class="tg-baqh">（20-X）+20</td>
+                      <td class="tg-baqh last-column">（20-X）+20</td>
+                  </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                      <td class="tg-baqh">角色</td>
+                      <td class="tg-s6z3">项目投入支出</td>
+                      <td class="tg-baqh">剩余本金=20-<br>项目投入支出</br></td>
+                      <td class="tg-baqh">项目<br>卖出所得</br></td>
+                      <td class="tg-baqh">完成项目收入=剩余<br>本金+项目卖出所得</br></td>
+                        <td class="tg-baqh">替A购买项目<br>收益</br></td>
+                      <td class="tg-baqh last-column">总收入=完成项目收入<br>+替A购买项目收益</br></td>
+                  </tr>
+                  <tr>
+                      <td class="tg-baqh">B</td>
+                      <td class="tg-s6z3">真实买价</td>
+                      <td class="tg-baqh">20-真实买价</td>
+                      <td class="tg-baqh">20</td>
+                      <td class="tg-baqh">（20-真实买价）+20</td>
+                      <td class="tg-baqh">X-真实买价</td>
+                      <td class="tg-baqh last-column">[(20-真实买价)+20]+(X-真实买价)</td>
+                  </tr>
+                </table>
+            {% elif Constants.treatment == "T3" %}
+                由于你只知道任务的收益区间为10至20个实验币，你需从你的实验室账户中拿出10个实验币交至B的实验室账户中。
+                B会告知你任务的收益是x个实验币，同时在获得收益后从B的实验室账户中支付x实验币投资收益至你的实验室账户。
+                之后，B从他的实验室账户中花费10个实验币替你购买1个文本转换任务。
+            {% elif Constants.treatment == "T6" %}
+            <p>
+                B为你和自己向实验组织者分别购买1个项目，买价均为10个实验币，待你和B分别完成项目后，由B向实验组织者出售这两个项目，B知道真实卖价，你只知道一个项目的卖价区间为[10,20]个实验币，<font size="5" color="red">B决定你获得Y个实验币，其中10&le;Y&le;20</font>。
+            </p>
+                <p>
+                收入计算如下：
+                </p>
+                <style>
+                .tg-baqh, .tg-s6z3 {
+                font-size: 16px;
+                text-align: center;
+                border: 1px solid black;  /* 新增：为单元格添加边框 */
+                }
+                .first-column {
+                padding-right: 20px;  /* 新增：增加第一列右侧的内边距 */
+                }
+                .tg {
+                margin-left: auto;
+                margin-right: auto;
+                height: 150px; /* 设置表格的高度 */
+                }
+                .last-column {
+                font-weight: bold;
+                }
+                </style>
+                <table class="tg" width="880" hight = "200">
+                  <tr>
+                      <td class="tg-baqh">角色</td>
+                      <td class="tg-s6z3">项目投入支出</td>
+                      <td class="tg-baqh">剩余本金=20-<br>项目投入支出</br></td>
+                      <td class="tg-baqh">项目<br>卖出所得</br></td>
+                      <td class="tg-baqh">完成项目收入=剩余<br>本金+项目卖出所得</br></td>
+                      <td class="tg-baqh last-column">总收入=完成项目收入</td>
+                  </tr>
+                  <tr>
+                       <td class="tg-baqh">A</td>
+                      <td class="tg-s6z3">10</td>
+                      <td class="tg-baqh">20-10</td>
+                      <td class="tg-baqh">Y</td>
+                      <td class="tg-baqh">（20-10）+Y</td>
+                      <td class="tg-baqh last-column">（20-10）+Y</td>
+                  </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                      <td class="tg-baqh">角色</td>
+                      <td class="tg-s6z3">项目投入支出</td>
+                      <td class="tg-baqh">剩余本金=20-<br>项目投入支出</br></td>
+                      <td class="tg-baqh">项目<br>卖出所得</br></td>
+                      <td class="tg-baqh">完成项目收入=剩余<br>本金+项目卖出所得</br></td>
+                        <td class="tg-baqh">替A卖出项目<br>收益</br></td>
+                      <td class="tg-baqh last-column">总收入=完成项目收入<br>+替A卖出项目收益</br></td>
+                  </tr>
+                  <tr>
+                      <td class="tg-baqh">B</td>
+                      <td class="tg-s6z3">10</td>
+                      <td class="tg-baqh">20-10</td>
+                      <td class="tg-baqh">真实卖价</td>
+                      <td class="tg-baqh">（20-10）+真实卖价</td>
+                      <td class="tg-baqh">真实卖价-Y</td>
+                      <td class="tg-baqh last-column">[(20-10)+真实卖价]+(真实卖价-Y)</td>
+                  </tr>
+                </table>
+            {% else %}
+
+            {% endif %}
+
+        </font>
+    </p>
+
+
+    <p>
+        <font size="5" color="red">
+            {% if Constants.treatment == "T1" %}
+                你与B完成1个任务后，总共40个实验币的收益先打到B的实验室账户上，再由B将其中的20个实验币收益交回至你的实验室账户。
+            {% elif Constants.treatment == "T2" %}
+                以上是你与参与者B的共同信息。
+
+            {% elif Constants.treatment == "T4" %}
+                以上是你与参与者B的共同信息。
+            {% elif Constants.treatment == "T5" %}
+                以上是你与参与者B的共同信息。
+            {% elif Constants.treatment == "T3" %}
+                你与B完成1个任务后，实验币的收益先打到B的实验室账户上，再由B将告知你x个实验币的收益交回至你的实验室账户。
+            {% elif Constants.treatment == "T6" %}
+                以上是你与参与者B的共同信息。
+            {% else %}
+
+            {% endif %}
+         </font>
+    </p>
+
+    <p><font size="5" color="black">
+        {% if Constants.treatment == "T1" %}
+            请认真阅读上述规则确保充分理解。你有2-6分钟的时间，两分钟后可以点击下一步。
+        {% elif Constants.treatment == "T2" %}
+            请认真阅读上述规则确保充分理解。你有2-6分钟的时间，两分钟后可以点击下一步。
+        {% elif Constants.treatment == "T4" %}
+            请认真阅读上述规则确保充分理解。你有2-6分钟的时间，两分钟后可以点击下一步。
+        {% elif Constants.treatment == "T5" %}
+            请认真阅读上述规则确保充分理解。你有2-6分钟的时间，两分钟后可以点击下一步。
+        {% elif Constants.treatment == "T3" %}
+            请认真阅读上述规则确保充分理解。你有2-6分钟的时间，两分钟后可以点击下一步。
+        {% elif Constants.treatment == "T6" %}
+            请认真阅读上述规则确保充分理解。你有2-6分钟的时间，两分钟后可以点击下一步。
+        {% else %}
+
+        {% endif %}
+
+</div>
+</div>
+
+
+<center><input type="submit" id="bt" class="otree-btn-next btn btn-primary" value="下一步" /></center>
+<script>
+    $(document).ready(function(){
+        // 两分钟的毫秒数
+        const delayTime = 2 * 60 * 1000;
+
+        // 获取'Next'按钮并将其禁用
+        let nextButton = $('#bt');
+        nextButton.prop('disabled', true);
+
+        // 设置警告消息
+        const warningMessage = "请再次仔细阅读以上内容。";
+
+        // 如果用户在两分钟内试图点击"Next"，则弹出警告消息
+        nextButton.on('click', function(e){
+            if(nextButton.prop('disabled')) {
+                e.preventDefault();
+                alert(warningMessage);
+            }
+        });
+
+        // 在延迟后启用'Next'按钮
+        setTimeout(function(){
+            nextButton.prop('disabled', false);
+        }, delayTime);
+    });
+</script>
+
+{{ endblock }}

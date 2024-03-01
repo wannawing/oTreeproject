@@ -1,0 +1,69 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{{ block title }}
+
+{{ endblock }}
+
+{{ block content }}
+<div class="card bg-light m-3">
+<div class="card-body">
+
+    <div id="content" style="background-color:#B0C4DE;clear:both;text-align:center;">
+        <h2 style="margin-bottom:0" > <center>调查问卷 </center></h2>
+    </div>
+    <div style="line-height:1.8;font-size:110%" class="c1" >
+    <pre style="font-size:110%">
+        最后，你需要完成一份个人调查问卷。
+        我们承诺对你的个人信息严格保密，仅用于研究使用，不会用于任何商业目的。
+    </pre>
+        <div style="padding-left:20px">
+        {{ formfield player.age }}
+        {{ formfield player.gender }}
+        {{ formfield player.grade }}
+        {{ formfield player.major }}
+        {{ formfield player.huji }}
+        {{ formfield player.father_edu }}
+        {{ formfield player.mother_edu }}
+        {{ formfield player.fam_inc }}
+        {{ formfield player.expenditure }}
+        {{ formfield player.software }}
+        {{ formfield player.books }}
+        {{ formfield player.onlychild }}
+        {{ formfield player.minority }}
+        {{ formfield player.cpc }}
+        {{ formfield player.leader }}
+         </div>
+    </div>
+    <br><br><br>
+    <div class="card bg-light m-3">
+        <div class="card-header" align="center">
+            <font size="5" color="black">
+            做出决策
+            </font>
+        </div>
+        <div class="card-body"><font size="4" color="black">
+            <b>决策规则</b>：你和本场实验所有参与人重新两两分组，每个小组的这个决策有20%的概率兑现。
+            小组内两个参与人一人随机为分配者，另一人为接受者。各自在此决策中所得收入会加入最终收益。<br>
+            <b>决策内容</b>：请你作为分配者（在此决策中被赋予10个实验币的禀赋），决定送给接受者的实验币数量。
+            </font>
+            <table class="tg" width="600" align="center">
+              <tr>
+                <td class="tg-baqh" width="10%"><font size="5" color="black">
+                    给出
+                    </font>
+                </td>
+                <td class="tg-s6z3" width="30%">{{ formfield player.dictator label=""}}</td>
+                <td class="tg-baqh" width="60%"><font size="5" color="black">个实验币，保留其余实验币</font></td>
+              </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+</div>
+</div>
+<center><input type="submit" id="bt" class="otree-btn-next btn btn-primary" value="结束实验，查看结果" />
+</center>
+{{ endblock }}

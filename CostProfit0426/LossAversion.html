@@ -1,0 +1,121 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+<center xmlns="">决策2</center>
+{% endblock %}
+{% block app_style %}
+<style>
+        table,table tr th, table tr td { border:1px solid; }
+        table {min-height: 25px; line-height: 25px; text-align: center; border-collapse: collapse; width: 550px;}
+</style>
+{% endblock %}
+{% block content %}
+<div class="card bg-light m-3">
+<div class="card-body">
+    <font size="5" color="red"><p><center>
+        请你进行如下决策。</center></p>
+    </font> <hr />
+
+    <p>如下表所示：一共11行决策，你在每行都要从选项A 和选项B 中选择一个你认为更好的选项。
+    <p>例如在第一个决策行中：</p>
+    <p>如果选择选项 A：你有50%的概率损失10个实验币，50%的概率得到10个实验币。
+    </p>
+    <p>如果选择选项 B：确定获得0个实验币。</p>
+    <p>
+        <font color="black"><b>
+        决策收入的决定：</b>
+        </font>计算机将在最后阶段从十一个决策行中随机选择一行，并根据你的决策决定你此页面的收入。例如，随机抽到第（7）行，如果你选择的是A，则电脑再随机决定是损失10个实验币还是得到22个实验币；
+    如果你选择的是B，则你获得0个实验币。</p>
+
+    <br/>
+
+    <table border="2" cellspacing="0" align="center">
+    <tr>
+    <th width="80">决策编号</th>
+    <th width="200">选项A</th>
+    <th width="200">选项B</th>
+
+    </tr>
+    <tr>
+    <td align="center">  (1) </td>
+    <td align="center">  50%的概率损失10个实验币 50%的概率得到10个实验币</td>
+    <td align="center">  确定获得0个实验币 </td>
+    </tr>
+    <tr>
+    <td align="center">  (2) </td>
+    <td align="center">  50%的概率损失10个实验币 50%的概率得到12个实验币  </td>
+    <td align="center">  确定获得0个实验币 </td>
+    </tr>
+    <tr>
+    <td align="center">  (3) </td>
+    <td align="center">  50%的概率损失10个实验币 50%的概率得到14个实验币  </td>
+    <td align="center">  确定获得0个实验币 </td>
+    </tr>
+    <tr>
+    <td align="center">  (4) </td>
+    <td align="center">  50%的概率损失10个实验币 50%的概率得到16个实验币  </td>
+    <td align="center">  确定获得0个实验币 </td>
+    </tr>
+            <tr>
+    <td align="center">  (5) </td>
+    <td align="center">  50%的概率损失10个实验币 50%的概率得到18个实验币  </td>
+    <td align="center">  确定获得0个实验币 </td>
+    </tr>
+            <tr>
+    <td align="center">  (6) </td>
+    <td align="center">  50%的概率损失10个实验币 50%的概率得到20个实验币  </td>
+    <td align="center">  确定获得0个实验币 </td>
+    </tr>
+            <tr>
+    <td align="center">  (7) </td>
+    <td align="center">  50%的概率损失10个实验币 50%的概率得到22个实验币  </td>
+    <td align="center">  确定获得0个实验币 </td>
+    </tr>
+            <tr>
+    <td align="center">  (8) </td>
+    <td align="center">  50%的概率损失10个实验币 50%的概率得到24个实验币  </td>
+    <td align="center">  确定获得0个实验币 </td>
+    </tr>
+            <tr>
+    <td align="center">  (9) </td>
+    <td align="center">  50%的概率损失10个实验币 50%的概率得到26个实验币  </td>
+    <td align="center">  确定获得0个实验币 </td>
+    </tr>
+            <tr>
+    <td align="center">  (10) </td>
+    <td align="center">  50%的概率损失10个实验币 50%的概率得到28个实验币  </td>
+    <td align="center">  确定获得0个实验币 </td>
+    </tr>
+        <tr>
+    <td align="center">  (11) </td>
+    <td align="center">  50%的概率损失10个实验币 50%的概率得到30个实验币  </td>
+    <td align="center">  确定获得0个实验币 </td>
+    </tr>
+    </table>
+    <br>
+
+    </p>
+    <hr />
+    <p><font size="5" color="red"><b><center>
+        请做出你的决策：</center></b>
+    </font></p>
+    <p><b>
+    {% formfield player.loss_A_num label="请你填入一个整数N，其中，0&le;N&le;11。如果你填入的N=0，代表所有决策均选择选项A；如果你填入N=11，代表所有决策均选择选项B；如果你填入的N满足1&le;N&le;10，代表你从第1到第N个决策都选择选项B，从第(N+1)个决策开始你会一直选择选项A。"%}</b>
+        </p><p>
+    <b>{% formfield player.loss_B_num label="填入上个空后，意味着决策表中多少个选项你选择了选项B？（0-11之间的某个数）"%}</b></p>
+
+    <p><font size="3" color="gray">
+        <b>例子：</b>如果小明第一个空填入5，表示他认为：决策表中前5个决策（编号1-编号5）他选择选项B；
+        从编号6开始后6个决策（编号6-编号11）他选择选项A。如果计算机最后阶段随机抽到5，那么计算机会再随机决定小明损失10个实验币或者得到18个实验币。</font>
+    </p>
+    <hr />
+      <br />
+<center>
+<!--<button type="submit" id="bt" disabled="disabled" class="otree-btn-next btn btn-primary" value="请仔细阅读，还剩10秒">请仔细阅读，还剩10秒</button>-->
+ <input type="submit" id="bt" class="otree-btn-next btn btn-primary" value="下一页" />
+</center>
+
+</div>
+</div>
+{% endblock %}

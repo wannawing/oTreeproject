@@ -1,0 +1,101 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{{ block content }}
+<div class="card bg-light m-3">
+    <div class="card-header" align="center">
+            <font size="5" color="black"><b><center>数0任务</center></b></font>
+    </div>
+<div class="card-body">
+    <center>
+    <p><font size="4" color="black">
+        {% if Constants.treatment == "T1" or Constants.treatment == "T3"%}
+            {% if player.id_in_group == 1 %}
+                本组中，你作为参与者A，
+            {% else %}
+                本组中，你作为参与者B，
+            {% endif %}
+            <br>
+            请完成10个数0任务，完成后你的实验室账户中可以获得20个实验币的收益。
+        {% else %}
+            {% if player.id_in_group == 1 %}
+                你与参与者B分别完成以下数0的任务，完成后你们各自可以获得20个实验币的收益。
+            {% else %}
+                你与参与者A分别完成以下数0的任务，完成后你们各自可以获得20个实验币的收益。
+            {% endif %}
+        {% endif %}
+    </font></p>
+    <p><font size="4" color="black">
+        （如果填写错误，在点击下一页后会提示修改，修改正确即可进入下一页）
+    </font></p>
+    </center>
+    
+    
+    <div class="card bg-light m-3">
+
+    <div class="card-body" align="center">
+        <table class="tg" width="700">
+              <tr>
+                <td class="tg-s6z3" width="20%">编号</td>
+                <td class="tg-s6z3" width="40%">数字序列</td>
+                <td class="tg-s6z3" width="40%">你的回答(0的个数)</td>
+              </tr>
+                <tr>
+                <td class="tg-s6z3" width="20%">1</td>
+                <td class="tg-s6z3" width="50%">100111100101101010011010101001</td>
+                <td class="tg-baqh" width="20%">{% formfield player.count_task1 label=""%}</td>
+              </tr>
+                <tr>
+                <td class="tg-s6z3" width="20%">2</td>
+                <td class="tg-s6z3" width="50%">110111100101001101011111111011</td>
+                <td class="tg-baqh" width="20%">{% formfield player.count_task2 label=""%}</td>
+              </tr>
+            <tr>
+                <td class="tg-s6z3" width="20%">3</td>
+                <td class="tg-s6z3" width="50%">111100101100100100001100001001</td>
+                <td class="tg-baqh" width="20%">{% formfield player.count_task3 label=""%}</td>
+              </tr>
+            <tr>
+                <td class="tg-s6z3" width="20%">4</td>
+                <td class="tg-s6z3" width="50%">001011111010111101101100001111</td>
+                <td class="tg-baqh" width="20%">{% formfield player.count_task4 label=""%}</td>
+              </tr>
+            <tr>
+                <td class="tg-s6z3" width="20%">5</td>
+                <td class="tg-s6z3" width="50%">110111000100001111101111111011</td>
+                <td class="tg-baqh" width="20%">{% formfield player.count_task5 label=""%}</td>
+              </tr>
+            <tr>
+                <td class="tg-s6z3" width="20%">6</td>
+                <td class="tg-s6z3" width="50%">001101110001011111101011101001</td>
+                <td class="tg-baqh" width="20%">{% formfield player.count_task6 label=""%}</td>
+              </tr>
+            <tr>
+                <td class="tg-s6z3" width="20%">7</td>
+                <td class="tg-s6z3" width="50%">100011101101100100000100010110</td>
+                <td class="tg-baqh" width="20%">{% formfield player.count_task7 label=""%}</td>
+              </tr>
+            <tr>
+                <td class="tg-s6z3" width="20%">8</td>
+                <td class="tg-s6z3" width="50%">100111100000101101000111010111</td>
+                <td class="tg-baqh" width="20%">{% formfield player.count_task8 label=""%}</td>
+              </tr>
+            <tr>
+                <td class="tg-s6z3" width="20%">9</td>
+                <td class="tg-s6z3" width="50%">001101001110101100110010001001</td>
+                <td class="tg-baqh" width="20%">{% formfield player.count_task9 label=""%}</td>
+              </tr>
+            <tr>
+                <td class="tg-s6z3" width="20%">10</td>
+                <td class="tg-s6z3" width="50%">001111100101011000001011110110</td>
+                <td class="tg-baqh" width="20%">{% formfield player.count_task10 label=""%}</td>
+              </tr>
+        </table>
+    </div>
+    </div>
+
+</div>
+</div>
+<center><input type="submit" id="bt" class="otree-btn-next btn btn-primary" value="下一页" />
+</center>
+{{ endblock }}

@@ -1,0 +1,87 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{{ block title }}
+    <center>
+
+    </center>
+{{ endblock }}
+
+{{ block content }}
+<div class="card bg-light m-3">
+<div class="card-body">
+
+    <p><font size="5" color="black">
+        {% if Constants.treatment == "T2"  %}
+            你认为要符合社会规范，作为参与者B，收取A的任务价格最高是多少。
+            <table class="tg" width="800">
+              <tr>
+                <td class="tg-baqh" width="20%">
+                    <font size="5" color="black">
+                    收取A的任务价格最高是
+                    </font>
+                </td>
+                <td class="tg-s6z3" width="10%">{% formfield player.social_norm label=""%}</td>
+                <td class="tg-baqh" width="30%">
+                    <font size="5" color="black">
+                    个实验币
+                    </font>
+                </td>
+              </tr>
+            </table>
+        {% elif Constants.treatment == "T5" %}
+            你认为要符合社会规范，作为参与者B，收取A的任务价格最高是多少。
+            <table class="tg" width="800">
+              <tr>
+                <td class="tg-baqh" width="20%">
+                    <font size="5" color="black">
+                    收取A的任务价格最高是
+                    </font>
+                </td>
+                <td class="tg-s6z3" width="10%">{% formfield player.social_norm label=""%}</td>
+                <td class="tg-baqh" width="30%">
+                    <font size="5" color="black">
+                    个实验币
+                    </font>
+                </td>
+              </tr>
+            </table>
+        {% elif Constants.treatment == "T4" %}
+            你认为要符合社会规范，作为参与者B，交给A的任务收入最低是多少。
+            <table class="tg" width="800">
+              <tr>
+                <td class="tg-baqh" width="20%">
+                    <font size="5" color="black">
+                    交给A的任务收入最低是
+                    </font>
+                </td>
+                <td class="tg-s6z3" width="10%">{% formfield player.social_norm label=""%}</td>
+                <td class="tg-baqh" width="30%">
+                    <font size="5" color="black">
+                    个实验币
+                    </font>
+                </td>
+              </tr>
+            </table>
+        {% elif Constants.treatment == "T6" %}
+            你认为要符合社会规范，作为参与者B，交给A的任务收入最低是多少。
+            <table class="tg" width="800">
+              <tr>
+                <td class="tg-baqh" width="20%">
+                    <font size="5" color="black">
+                    交给A的任务收入最低是
+                    </font>
+                </td>
+                <td class="tg-s6z3" width="10%">{% formfield player.social_norm label=""%}</td>
+                <td class="tg-baqh" width="30%">
+                    <font size="5" color="black">
+                    个实验币
+                    </font>
+                </td>
+              </tr>
+            </table>
+        {% endif %}
+
+<center><input type="submit" id="bt" class="otree-btn-next btn btn-primary" value="下一步" />
+</center>
+{{ endblock }}

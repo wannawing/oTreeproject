@@ -1,0 +1,70 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{{ block title }}
+    <center>
+        {% if Constants.treatment == "T1" or Constants.treatment == "T3" %}
+            <img src="{% static 'account.png' %}" width="100cm">实验室账户余额：{{player.account}}个实验币
+        {% else %}
+
+        {% endif %}
+    </center>
+{{ endblock }}
+
+{{ block content }}
+<div class="card bg-light m-3">
+<div class="card-body">
+
+    <p>
+        {% if player.id_in_group == 1 %}
+
+        {% else %}
+            <font size="5" color="black">
+            {% if Constants.treatment == "T2" %}
+            <p>
+                你和同组参与者A都知道单个项目买价为10个实验币。
+            </p>
+            <p>
+                下面请你猜测A猜测你决定A买该项目A投入多少个实验币。
+            </p>
+            <p>
+                若你猜测正确，你可获得3个实验币的额外收益,
+                若你的猜测值与实际值相差等于1，你可获得1个实验币的额外收益（实验最后告知）。
+            </p>
+
+            {% else %}
+            {% elif Constants.treatment == "T4" %}
+            <p>
+                你和同组参与者A都知道单个项目卖价为20个实验币。
+            </p>
+            <p>
+                下面请你猜测A猜测你决定A卖该项目A获得多少个实验币。
+            </p>
+            <p>
+                若你猜测正确，你可获得3个实验币的额外收益,
+                若你的猜测值与实际值相差等于1，你可获得1个实验币的额外收益（实验最后告知）。
+            </p>
+            {% endif %}
+                </font>
+            <table class="tg" width="970">
+            <tr>
+                <td class="tg-baqh" width="11%">
+                    <font size="5" color="black">
+                        {% if Constants.treatment == "T1" or Constants.treatment == "T5" or  Constants.treatment == "T2"%}
+                            你猜测A猜测你决定A买该项目A投入
+                        {% else %}
+                            你猜测A猜测你决定A卖该项目A获得
+                        {% endif %}
+                    </font>
+                </td>
+                <td class="tg-s6z3" width="6%">{% formfield player.guess_guesses %}</td>
+                <td class="tg-baqh" width="10%"><font size="5" color="black">个实验币。</font></td>
+            </tr>
+            </table>
+        {% endif %}
+    </p>
+</div>
+</div>
+<center><input type="submit" id="bt" class="otree-btn-next btn btn-primary" value="下一页" />
+</center>
+{{ endblock }}

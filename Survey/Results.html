@@ -1,0 +1,203 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    <center><font size="6" color="red"><b>感谢你的参与！</b></font></center>
+{% endblock %}
+
+{% block content %}
+
+<div class="card bg-light m-3">
+<div class="card-body">
+    <center>
+    <p><font size="5" color="red">
+        你已经完成本次实验的全部内容</font></p>
+    现将实验结果及你的收入总结如下：</center>
+    <hr />
+    {% if participant.id_in_main_exp_group == 1 %}
+        <p>（1）你作为参与者A，你完成数0任务的收入为20个实验币。</p>
+        <p>（2）
+            {% if Constants.treatment == "T1" or Constants.treatment == "T2" or Constants.treatment == "T5" %}
+                与你配对的参与者B决定你购买文本转换项目你需投入{{player_a_see}}个实验币，文本转换项目卖出所得为20个实验币，净收入为{{b_return}}个实验币。
+            {% elif Constants.treatment == "T5" %}
+                与你配对的参与者B决定你购买文本转换项目你需投入{{player_a_see}}个实验币，文本转换项目卖出所得为20个实验币，净收入为{{b_return}}个实验币。
+            {% elif Constants.treatment == "T4" or Constants.treatment == "T6" %}
+                文本转换项目投入支出为10实验币，与你配对的参与者B决定你卖出文本转换项目你将获得{{player_a_see}}个实验币，净收入为{{b_return_profit}}个实验币。
+            {% endif %}
+        </p>
+        <p>
+            （3）在涉及损失的决策表中，你的前{{participant.loss_A_num}}个决策行中选择了"选项A"(确定值选项)，
+            后面的决策行中选择了"选项B"(风险选项)。
+            计算机随机决定你的收益由风险决策表第{{participant.loss_which}}个决策行的决策来决定，你选择了
+            {% if participant.loss_which > participant.loss_A_num %}
+                    ”选项B“。
+            {% else %}
+                ”选项A“。
+            {% endif %}
+            你在本决策表中的收益为{{participant.loss_token}}个实验币。
+        </p>
+        <p>
+
+            （4）
+            {%if player.id_in_group == 1%}
+                在分配决策中，你的决策用来确定你们两人的收入，你拥有10个实验币，给出{{player.dictator}}个实验币。
+            {%else%}
+                在分配决策中，同组另一人的决策用来确定你们两人的收入，他给出{{dictator_give}}个实验币。
+            {%endif%}
+        </p>
+        <p>
+            （5）你完成调查问卷获得10个实验币的固定收入。
+        </p>
+        <p>{%if Constants.treatment == "T2"%}
+            （6）
+                {%if participant.guess_correct == 1 %}
+                你猜测同组B决定你买该项目你投入的金额准确，获得3个实验币的收益。
+                {%elif participant.guess_correct > 0.3%}
+                    {%if participant.guess_correct < 0.34%}
+                    你猜测同组B决定你买该项目你投入的金额与实际值相差为1，获得1个实验币的收益。
+                    {%endif%}
+                {%else%}
+                你猜测同组B决定你买该项目你投入的金额不准确，没有获得额外的收益。
+                {%endif%}
+        </p>
+        <p>
+            （7）
+                {%if participant.norm_income == 3 %}
+                你对B的某个分配数值符合社会规范的程度的判断和随机选择的参与者B的判断相同，获得3个实验币的收益。
+                {% else %}
+                你对B的某个分配数值符合社会规范的程度的判断和随机选择的参与者B的判断不同，获得0个实验币的收益。
+                {%endif%}
+            {%endif%}
+        </p>
+        <p>{%if Constants.treatment == "T4"%}
+            （6）
+                {%if participant.guess_correct == 1%}
+                你猜测同组B决定你卖该项目你获得的收益准确，获得3个实验币的收益。
+                {%elif participant.guess_correct > 0.3%}
+                    {%if participant.guess_correct < 0.34%}
+                    你猜测同组B决定你卖该项目你获得的收益与实际值相差为1，获得1个实验币的收益。
+                    {%endif%}
+                {%else%}
+                你猜测同组B决定你卖该项目你获得的收益不准确，没有获得额外的收益。
+                {%endif%}
+</p>
+        <p>
+            （7）
+                {%if participant.norm_income == 3 %}
+                你对B的某个分配数值符合社会规范的程度的判断和随机选择的参与者B的判断相同，获得3个实验币的收益。
+                {% else %}
+                你对B的某个分配数值符合社会规范的程度的判断和随机选择的参与者B的判断不同，获得0个实验币的收益。
+                {%endif%}
+            {%endif%}
+        </p>
+        <p>你的总收入为{{player.final_tokens}}个实验币。转换为人民币你的收入为{{player.payoff}}。</p>
+        请确认你的收入，感谢你参与实验！
+    {% else %}
+        <p>（1）你作为参与者B，你完成数0任务的收入为20个实验币。</p>
+        <p>（2）
+            {% if Constants.treatment == "T5" or Constants.treatment == "T2"%}
+                单个任务的价格是10个实验币，你花费20个实验币购买你们的任务，
+                你决定参与者A购买该项目A需投入{{player_a_see}}个实验币，
+                卖出任务个人能够获得20个实验币。所以你的净收入为{{player_a_see}}个实验币。
+            {% else %}
+                单个任务的价格是10个实验币，你花费20个实验币购买你们的任务，
+                卖出任务个人能够获得20个实验币，
+                你决定参与者A卖出该项目将获得{{player_a_see}}个实验币，所以你的净收益为{{b_gain}}个实验币。
+            {% endif %}
+        </p>
+        <p>（3）
+            {% if Constants.treatment == "T5" or Constants.treatment == "T2"%}
+                {%if participant.guess_correct == 1 %}
+                    你猜测其他参与者B决定同组A买该项目A投入的平均值与真实值相差小于0.5，获得3个实验币的收益。
+                {%elif participant.guess_correct > 0.33%}
+                    {%if participant.guess_correct < 0.34%}
+                    你猜测其他参与者B决定同组A买该项目A投入的平均值与实际值相差小于1，获得1个实验币的收益。
+                    {%endif%}
+                {%else%}
+                    你猜测其他参与者B决定同组A买该项目A投入的平均值不接近真实值，没有获得额外的收益。
+                {%endif%}
+            {% else %}
+                {%if participant.guess_correct == 1 %}
+                    你猜测其他参与者B决定同组A卖该项目A获得的平均值与真实值相差小于0.5，获得3个实验币的收益。
+                {%elif participant.guess_correct > 0.33%}
+                    {%if participant.guess_correct < 0.34%}
+                    你猜测其他参与者B决定同组A卖该项目A获得的平均值与实际值相差小于1，获得1个实验币的收益。
+                    {%endif%}
+                {%else%}
+                    你猜测其他参与者B决定同组A卖该项目A获得的平均值不接近真实值，没有获得额外的收益。
+                {% endif %}
+            {% endif %}
+        </p>
+        <p>
+            （4）在涉及损失的决策表中，你在前{{participant.loss_A_num}}个决策行中选择了"选项A"(确定值选项)，
+            后面的决策行中选择了"选项B"(风险选项)。
+            计算机随机决定你的收益由风险决策表第{{participant.loss_which}}个决策行的决策来决定，你选择了
+            {% if participant.loss_which > participant.loss_A_num %}
+                    ”选项B“。
+            {% else %}
+                ”选项A“。
+            {% endif %}
+            你在本决策表中的收益为{{participant.loss_token}}个实验币。
+        </p>
+        <p>（5）
+            {%if player.id_in_group == 1%}
+                在分配决策中，你的决策用来确定你们两人的收入，你拥有10个实验币，给出{{player.dictator}}个实验币。
+            {%else%}
+                在分配决策中，同组另一人的决策用来确定你们两人的收入，他给出{{dictator_give}}个实验币。
+            {%endif%}
+        </p>
+        <p>
+            （6）
+                你完成调查问卷获得10个实验币的固定收入。
+        </p>
+        <p>{%if Constants.treatment == "T2" or Constants.treatment == "T5"%}
+            （7）
+                {%if participant.guess_correct2 == 1%}
+                你猜测同组参与者A猜测你决定A买该项目投入的实验币数量准确，得到3个实验币。
+                {%elif participant.guess_correct2 > 0.33%}
+                    {%if participant.guess_correct2 < 0.34%}
+                    你猜测同组参与者A猜测你决定A买该项目投入的实验币数量与实际值相差为1，获得1个实验币的收益。
+                    {%endif%}
+                {%else%}
+                你猜测同组参与者A猜测你决定A买该项目投入的实验币数量不准确，没有获得额外的收益。
+                {%endif%}
+</p>
+        <p>
+            （8）
+                {%if participant.norm_income == 3 %}
+                你对B的某个分配数值符合社会规范的程度的判断和随机选择的参与者B的判断相同，获得3个实验币的收益。
+                {% else %}
+                你对B的某个分配数值符合社会规范的程度的判断和随机选择的参与者B的判断不同，获得0个实验币的收益。
+                {%endif%}
+
+            {%endif%}
+        </p>
+        <p>{% if Constants.treatment == "T4" or Constants.treatment == "T6"%}
+            （7）
+                {%if participant.guess_correct2 == 1%}
+                你猜测同组参与者A猜测你决定A卖该项目获得的实验币数量准确，得到3个实验币。
+                {%elif participant.guess_correct2 > 0.33%}
+                    {%if participant.guess_correct2 < 0.34%}
+                    你猜测同组参与者A猜测你决定A卖该项目获得的实验币数量与实际值相差为1，获得1个实验币的收益。
+                    {%endif%}
+                {%else%}
+                {%else%}
+                你猜测同组参与者A猜测你决定A卖该项目获得的实验币数量不准确，没有获得额外的收益。
+                {%endif%}
+        </p>
+        <p>
+            （8）
+                {%if participant.norm_income == 3 %}
+                你对B的某个分配数值符合社会规范的程度的判断和随机选择的参与者B的判断相同，获得3个实验币的收益。
+                {% else %}
+                你对B的某个分配数值符合社会规范的程度的判断和随机选择的参与者B的判断不同，获得0个实验币的收益。
+                {%endif%}
+            {%endif%}
+        </p>
+        <p>你的总收入为{{player.final_tokens}}实验币。转换为人民币你的收入为{{player.payoff}}。</p>
+        请确认你的收入，感谢你参与实验！
+    {% endif %}
+    <br />
+
+</div></div>
+{% endblock %}

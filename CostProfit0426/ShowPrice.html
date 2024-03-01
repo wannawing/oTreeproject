@@ -1,0 +1,44 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{{ block title }}
+    <center>
+        {% if Constants.treatment == "T1" or Constants.treatment == "T3" %}
+            <img src="{% static 'account.png' %}" width="100cm">实验室账户余额：{{player.account}}个实验币
+        {% else %}
+
+        {% endif %}
+    </center>
+{{ endblock }}
+
+{{ block content }}
+<div class="card bg-light m-3">
+<div class="card-body">
+    <center>
+    <p><font size="5" color="black">
+        {% if Constants.treatment == "T1" %}
+            同组参与者B告知你文本转换项目价格为{{player_a_see}}实验币，并从他的实验室账户中返回{{b_return}}个实验币至你的实验室账户，
+            你需要完成5项文本转换项目从而获得20个实验币的收入。
+        {% elif Constants.treatment == "T2" %}
+            同组参与者B收取你文本转换项目的价格为{{player_a_see}}个实验币，并将{{b_return}}个实验币给你。
+        {% elif Constants.treatment == "T4" %}
+            同组参与者B交给你文本转换项目的收入为{{player_a_see}}个实验币。
+        {% elif Constants.treatment == "T5" %}
+            同组参与者B收取你文本转换项目的价格为{{player_a_see}}个实验币，并将{{b_return}}个实验币给你。
+        {% elif Constants.treatment == "T3" %}
+            同组参与者B告知你文本转换项目的收入为{{player_a_see}}个实验币，你需要完成5项文本转换项目从而获得收入。
+        {% elif Constants.treatment == "T6" %}
+            同组参与者B交给你文本转换项目的收入为{{player_a_see}}个实验币。
+        {% else %}
+
+        {% endif %}
+    </font></p>
+
+ </div>
+ </div>
+
+<center>
+    <input type="submit" id="bt" class="otree-btn-next btn btn-primary" value="下一步" />
+</center>
+
+{{ endblock }}

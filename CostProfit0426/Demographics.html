@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{{ block title }}
+
+{{ endblock }}
+
+{{ block content }}
+<div class="card bg-light m-3">
+<div class="card-body">
+
+    <div id="content" style="background-color:#B0C4DE;clear:both;text-align:center;">
+    <h2 style="margin-bottom:0" > <center>调查问卷 </center></h2>
+    </div>
+    <div style="line-height:1.8;font-size:110%" class="c1" >
+    <pre style="font-size:110%">
+        最后，你需要完成一份个人调查问卷。
+        我们承诺对你的个人信息严格保密，仅用于研究使用，不会用于任何商业目的。
+    </pre><hr/>
+        <div style="padding-left:20px">
+        {{ formfields }}
+    </div>
+        <center>{{ next_button }}</center>
+    </div>
+
+</div>
+</div>
+{{ endblock }}

@@ -1,0 +1,319 @@
+{% block title %}
+    <center><font size="6" color="black"><b>调查问卷</b></font></center>
+{% endblock %}
+
+{{ block content }}
+<p>
+    <font size="5" color="black">
+    请你完成调查问卷，调查问卷分为两部分，认真完成后可以获得10个实验币的收入。以下是调查问卷的第一部分。
+</p>
+    </font>
+<p>
+    <font size="5" color="black">
+    <b>滑块的初始位置是随机的，请你挪动滑块做出选择，滑块越靠近某选项表明你越倾向于那个选项。以下问题没有标准答案，请你根据你内心的真实想法认真作答。
+    你有2-6分钟的时间，两分钟后可以点击下一步。</b>
+    </font>
+</p>
+
+<label class="col-form-label">
+    <font size="4" color="black">
+    1.假设你是企业主，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex ; justify-content: center; align-items: center; width: 1000px; ">
+    维持价格不变降低商品或服务质量
+    &nbsp;
+    <input type="range" name="f_int1" min="0" max="4"  id="f_int1" style="width: 190px" class="persist">
+    &nbsp;
+    维持商品或服务质量不变提高商品价格
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    2.假设你是消费者，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 1000px;">
+    维持价格不变降低商品或服务质量
+    &nbsp;
+    <input type="range" name="f_int2" min="0" max="4"  id="f_int2" style="width: 190px" class="persist">
+    &nbsp;
+    维持商品或服务质量不变提高商品价格
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    3.假设你是企业主，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 1000px;">
+    维持价格不变提高商品或服务质量
+    &nbsp;
+    <input type="range" name="f_int3" min="0" max="4"  id="f_int3" style="width: 190px" class="persist">
+    &nbsp;
+    维持商品或服务质量不变降低商品价格
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    4.假设你是消费者，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 1000px;">
+    维持价格不变提高商品或服务质量
+    &nbsp;
+    <input type="range" name="f_int4" min="0" max="4"  id="f_int4" style="width: 190px" class="persist">
+    &nbsp;
+    维持商品或服务质量不变降低商品价格
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    5.假设你是政府官员，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center; width: 1000px;">
+    维持公共品不变，政府向企业和个人征收更多的税
+    &nbsp;
+    <input type="range" name="f_int5" min="0" max="4"  id="f_int5" style="width: 190px" class="persist">
+    &nbsp;
+    维持政府向企业和个人征收的税不变，减少公共品数量
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    6.假设你是老百姓，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 1000px;">
+    维持公共品不变，政府向企业和个人征收更多的税
+    &nbsp;
+    <input type="range" name="f_int6" min="0" max="4"  id="f_int6" style="width: 190px" class="persist">
+    &nbsp;
+    维持政府向企业和个人征收的税不变，减少公共品数量
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    7.假设你是政府官员，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 1000px;">
+    维持公共品不变，政府向企业和个人征收更少的税
+    &nbsp;
+    <input type="range" name="f_int7" min="0" max="4"  id="f_int7" style="width: 190px" class="persist">
+    &nbsp;
+    维持政府向企业和个人征收的税不变，增加公共品数量
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    8.假设你是老百姓，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 1000px;">
+    维持公共品不变，政府向企业和个人征收更少的税
+    &nbsp;
+    <input type="range" name="f_int8" min="0" max="4"  id="f_int8" style="width: 190px" class="persist">
+    &nbsp;
+    维持政府向企业和个人征收的税不变，增加公共品数量
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    9.假设你是企业主，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 970px;">
+    维持员工福利不变，降低员工工资
+    &nbsp;
+    <input type="range" name="f_int9" min="0" max="4"  id="f_int9" style="width: 190px" class="persist">
+    &nbsp;
+    维持员工工资不变，降低员工福利
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    10.假设你是员工，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 970px;">
+    维持员工福利不变，降低员工工资
+    &nbsp;
+    <input type="range" name="f_int10" min="0" max="4"  id="f_int10" style="width: 190px" class="persist">
+    &nbsp;
+    维持员工工资不变，降低员工福利
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    11.假设你是企业主，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 970px;">
+    维持员工福利不变，增加员工工资
+    &nbsp;
+    <input type="range" name="f_int11" min="0" max="4"  id="f_int11" style="width: 190px" class="persist">
+    &nbsp;
+    维持员工工资不变，增加员工福利
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    12.假设你是员工，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 970px;">
+    维持员工福利不变，增加员工工资
+    &nbsp;
+    <input type="range" name="f_int12" min="0" max="4"  id="f_int12" style="width: 190px" class="persist">
+    &nbsp;
+    维持员工工资不变，增加员工福利
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    13.假设你是殖民者，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 940px;">
+    殖民者直接从被殖民地取走自然资源，不征税
+    &nbsp;
+    <input type="range" name="f_int13" min="0" max="4"  id="f_int13" style="width: 190px" class="persist">
+    &nbsp;
+    殖民者在被殖民地征税，不取走自然资源
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    14.假设你是被殖民者，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 940px;">
+    殖民者直接从被殖民地取走自然资源，不征税
+    &nbsp;
+    <input type="range" name="f_int14" min="0" max="4"  id="f_int14" style="width: 190px" class="persist">
+    &nbsp;
+    殖民者在被殖民地征税，不取走自然资源
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    15.假设你是消费者，你倾向于:
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 970px;">
+    下载盗版软件
+    &nbsp;
+    <input type="range" name="f_int15" min="0" max="4"  id="f_int15" style="width: 190px" class="persist">
+    &nbsp;
+    购买正版软件
+</div>
+<br>
+<label class="col-form-label">
+    <font size="4" color="black">
+    16.假设你去汉堡王就餐，你倾向于：
+    </font>
+</label>
+
+<div style="display: flex; justify-content: center; align-items: center;width: 940px;">
+    就餐后自己整理餐具，保持餐桌整洁
+    &nbsp;
+    <input type="range" name="f_int16" min="0" max="4"  id="f_int16" style="width: 190px" class="persist">
+    &nbsp;
+    就餐后店员整理，保持餐桌整洁
+</div>
+<script>
+    window.onload = function() {
+        // 获取 input 元素
+        var slider1 = document.getElementById('f_int1');
+        var slider2 = document.getElementById('f_int2');
+        var slider3 = document.getElementById('f_int3');
+        var slider4 = document.getElementById('f_int4');
+        var slider5 = document.getElementById('f_int5');
+        var slider6 = document.getElementById('f_int6');
+        var slider7 = document.getElementById('f_int7');
+        var slider8 = document.getElementById('f_int8');
+        var slider9 = document.getElementById('f_int9');
+        var slider10 = document.getElementById('f_int10');
+        var slider11 = document.getElementById('f_int11');
+        var slider12 = document.getElementById('f_int12');
+        var slider13 = document.getElementById('f_int13');
+        var slider14 = document.getElementById('f_int14');
+        var slider15 = document.getElementById('f_int15');
+        var slider16 = document.getElementById('f_int16');
+
+        // 设置一个介于 min 和 max 之间的随机值
+        slider1.value = Math.floor(Math.random() * (slider1.max - slider1.min + 1)) + parseInt(slider1.min);
+        slider2.value = Math.floor(Math.random() * (slider2.max - slider2.min + 1)) + parseInt(slider2.min);
+        slider3.value = Math.floor(Math.random() * (slider1.max - slider1.min + 1)) + parseInt(slider3.min);
+        slider4.value = Math.floor(Math.random() * (slider2.max - slider2.min + 1)) + parseInt(slider4.min);
+        slider5.value = Math.floor(Math.random() * (slider1.max - slider1.min + 1)) + parseInt(slider5.min);
+        slider6.value = Math.floor(Math.random() * (slider2.max - slider2.min + 1)) + parseInt(slider6.min);
+        slider7.value = Math.floor(Math.random() * (slider1.max - slider1.min + 1)) + parseInt(slider7.min);
+        slider8.value = Math.floor(Math.random() * (slider2.max - slider2.min + 1)) + parseInt(slider8.min);
+        slider9.value = Math.floor(Math.random() * (slider1.max - slider1.min + 1)) + parseInt(slider9.min);
+        slider10.value = Math.floor(Math.random() * (slider2.max - slider2.min + 1)) + parseInt(slider10.min);
+        slider11.value = Math.floor(Math.random() * (slider1.max - slider1.min + 1)) + parseInt(slider11.min);
+        slider12.value = Math.floor(Math.random() * (slider2.max - slider2.min + 1)) + parseInt(slider12.min);
+        slider13.value = Math.floor(Math.random() * (slider1.max - slider1.min + 1)) + parseInt(slider13.min);
+        slider14.value = Math.floor(Math.random() * (slider2.max - slider2.min + 1)) + parseInt(slider14.min);
+        slider15.value = Math.floor(Math.random() * (slider1.max - slider1.min + 1)) + parseInt(slider15.min);
+        slider16.value = Math.floor(Math.random() * (slider2.max - slider2.min + 1)) + parseInt(slider16.min);
+    }
+</script>
+
+
+
+<br><br>
+<center><input type="submit" id="bt" class="otree-btn-next btn btn-primary" value="下一步" /></center>
+
+
+{#
+INSTRUCTIONS
+(1) make sure your _static/ folder contains persist-raw.js
+(2) copy the below 'script' tag into your template
+(3) add class="persist" to your raw HTML inputs
+#}
+<script>
+    $(document).ready(function(){
+        // 两分钟的毫秒数
+        const delayTime = 2 * 60 * 1000;
+
+        // 获取'Next'按钮并将其禁用
+        let nextButton = $('#bt');
+        nextButton.prop('disabled', true);
+
+        // 设置警告消息
+        const warningMessage = "请再次仔细阅读以上内容。";
+
+        // 如果用户在两分钟内试图点击"Next"，则弹出警告消息
+        nextButton.on('click', function(e){
+            if(nextButton.prop('disabled')) {
+                e.preventDefault();
+                alert(warningMessage);
+            }
+        });
+
+        // 在延迟后启用'Next'按钮
+        setTimeout(function(){
+            nextButton.prop('disabled', false);
+        }, delayTime);
+    });
+</script>
+{{ endblock }}

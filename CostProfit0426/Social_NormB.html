@@ -1,0 +1,250 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{{ block title }}
+<style>
+    center
+</style>
+    <center>
+    社会规范评价
+    </center>
+{{ endblock }}
+
+{{ block content }}
+{% if Constants.treatment == "T2" or Constants.treatment == "T5" %}
+<div class="card bg-light m-3" xmlns="http://www.w3.org/1999/html">
+<div class="card-body">
+    <font size="5">
+    <p>
+           参与者B决定参与者A购买1个文本转换项目A投入X个实验币，下表列举了X的所有可能的数值。如果A投入X个实验币，那么A剩余本金为20-X个实验币，B替A购买文本转换项目收益为X-10个实验币。
+    </p>
+
+</font>
+    <p>
+     <font size= "5" color="red">程序将随机挑选一个数值X和一位参与者B，如果你对这个数值的评价和这个参与者B的评价相同，那么你将得到3个实验币的奖励。</font>
+    </p>
+        <head>
+            <style>
+            .center {
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;  /* 设置表格宽度为100% /
+                table-layout: fixed;  /* 设置列宽固定 */
+            }
+            .center td {
+                padding: 0.01px;  /* 设置单实验币格的内边距，间接影响行高 */
+                line-height: 1;  /* 设置行高为固定的像素值，根据需要进行调整 */
+            }
+            .center tr:nth-child(even) {
+                background-color: #f2f2f2;  /* 设置偶数行的背景色为灰色 */
+            }
+
+            .center tr:nth-child(odd) {
+                background-color: #ffffff;  /* 设置奇数行的背景色为白色 */
+            }
+            .question {
+                width: 165px;
+                text-align: center;
+                vertical-align: middle;
+            }
+            .answer {
+                width: 716px;
+                text-align: center;
+                vertical-align: middle;
+            }
+            td {
+                border-bottom: 1px solid #000000;
+                border-top: 1px solid #000000;
+            }
+            .center tbody tr {
+            background-color: initial;
+            }
+            </style>
+        </head>
+        <body>
+            <table>
+              <table class="center">
+              <tr>
+                    <td align="center"><b>X 的数值</b></td>
+                    <td align="center"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是否符合社会规范</b></td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A投入10个实验币</b><br>（B获得0个实验币）</small></td>
+                  <td class="answer"><small>{% formfield player.social_norm0 %}</small></td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A投入11个实验币</b><br>（B获得1个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm1 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A投入12个实验币</b><br>（B获得2个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm2 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A投入13个实验币</b><br>（B获得3个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm3 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A投入14个实验币</b><br>（B获得4个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm4 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A投入15个实验币</b><br>（B获得5个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm5 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A投入16个实验币</b><br>（B获得6个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm6 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A投入17个实验币</b><br>（B获得7个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm7 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A投入18个实验币</b><br>（B获得8个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm8 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A投入19个实验币</b><br>（B获得9个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm9 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A投入20个实验币</b><br>（B获得10个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm10 %}</td>
+              </tr>
+              </table>
+            </table>
+        </body>
+
+
+
+
+        </div>
+    </div>
+
+
+</div>
+</div>
+{% elif Constants.treatment == "T4" or Constants.treatment == "T6"  %}
+<div class="card bg-light m-3">
+<div class="card-body">
+    <font size="5">
+        <p>
+            参与者B决定参与者A卖出1个文本转换项目A获得Y个实验币，下表列举了Y的所有可能的数值。如果A获得Y个实验币，那么A完成项目的净收入为Y-10个实验币，B替A卖出文本转换项目收益为20-Y个实验币。
+        </p>
+    </font>
+    <font size="5" color="red">
+    <p>
+        程序将随机挑选一个数值Y和一位参与者B，如果你对这个数值的评价和这个参与者B的评价相同，那么你将得到3个实验币的奖励。
+    </p></font>
+    </pre>
+        <head>
+            <style>
+            .center {
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;  /* 设置表格宽度为100% /
+                table-layout: fixed;  /* 设置列宽固定 */
+            }
+            .center td {
+                padding: 0.01px;  /* 设置单实验币格的内边距，间接影响行高 */
+                line-height: 1;  /* 设置行高为固定的像素值，根据需要进行调整 */
+            }
+            .center tr:nth-child(even) {
+                background-color: #f2f2f2;  /* 设置偶数行的背景色为灰色 */
+            }
+
+            .center tr:nth-child(odd) {
+                background-color: #ffffff;  /* 设置奇数行的背景色为白色 */
+            }
+            .question {
+                width: 165px;
+                text-align: center;
+                vertical-align: middle;
+            }
+            .answer {
+                width: 716px;
+                text-align: center;
+                vertical-align: middle;
+            }
+            td {
+                border-bottom: 1px solid #000000;
+                border-top: 1px solid #000000;
+            }
+            .center tbody tr {
+            background-color: initial;
+            }
+            </style>
+        </head>
+        <body>
+            <table>
+              <table class="center">
+              <tr>
+                    <td align="center"><b>Y 的数值</b></td>
+                    <td align="center"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是否符合社会规范</b></td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A获得20个实验币</b><br>（B获得0个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm0 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A获得19个实验币</b><br>（B获得1个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm1 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A获得18个实验币</b><br>（B获得2个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm2 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A获得17个实验币</b><br>（B获得3个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm3 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A获得16个实验币</b><br>（B获得4个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm4 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A获得15个实验币</b><br>（B获得5个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm5 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A获得14个实验币</b><br>（B获得6个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm6 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A获得13个实验币</b><br>（B获得7个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm7 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A获得12个实验币</b><br>（B获得8个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm8 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A获得11个实验币</b><br>（B获得9个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm9 %}</td>
+              </tr>
+              <tr>
+                <td class="question"><small><b>B决定A获得10个实验币</b><br>（B获得10个实验币）</small></td>
+                <td class="answer"><small>{% formfield player.social_norm10 %}</td>
+              </tr>
+              </table>
+            </table>
+        </body>
+
+
+
+
+        </div>
+    </div>
+
+
+</div>
+</div>
+
+
+
+{% endif %}
+<center>
+    <input type="submit" id="bt" class="otree-btn-next btn btn-primary" value="下一步" />
+</center>
+{{ endblock }}

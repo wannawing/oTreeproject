@@ -1,0 +1,123 @@
+{{ block title }}
+
+{{ endblock }}
+
+{{ block content }}
+<div class="card bg-light m-3">
+<div class="card-body">
+    <font size="5"><p><center>
+        决策</center></p>
+    </font> <hr />
+
+    <p>如下表所示：一共11行决策，你在每行都要从选项A 和选项B 中选择一个你认为更好的选项。
+    <p>例如在第一个决策行中：</p>
+    <p>如果选择选项 A：你确定获得0个实验币。
+    </p>
+    <p>如果选择选项 B：你有50%的概率损失10个实验币，50%的概率得到10个实验币。</p>
+    <p>
+        <font color="black"><b>
+        决策收入的决定：</b>
+        </font>计算机将在最后阶段从十一个决策行中随机选择一行，并根据你的决策决定你此页面的收入。例如，随机抽到第（7）行，如果你选择的是A，则你获得0个实验币。
+    如果你选择的是B，则电脑再随机决定是损失10个实验币还是得到22个实验币。</p>
+
+    <br/>
+
+<input type="hidden" name="switching_point" id="id_switching_point">
+{{ formfield_errors 'switching_point' }}
+
+<table class="table table-striped">
+    <colgroup>
+        <col width="30%">
+        <col width="10%">
+        <col width="60%">
+    </colgroup>
+    <tr>
+        <td align="center"><b>选项 A</b></td>
+        <td></td>
+        <td align="center"><b>选项 B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+    </tr>
+    {{ for amount in right_side_amounts }}
+    <tr>
+        <td align="center">
+            确定获得<b> 0 </b> 个实验币
+        </td>
+        <td align="left">
+            <input type="radio"
+                   value="left"
+                   name="{{ amount }}"
+                   required>&nbsp;&nbsp;
+            <input type="radio"
+                   name="{{ amount }}"
+                   value="right" data-amount="{{ amount }}"
+                   required>
+        <td align="left">
+            50%的概率损失<b> 10 </b>个实验币，
+            50%的概率得到&nbsp;<b>{{ amount }}</b>&nbsp;个实验币&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;
+        </td>
+
+    </tr>
+    {{ endfor }}
+</table>
+
+<center>
+    <button type="button" class="btn btn-primary" onclick="submitForm()">下一步</button>
+</center>
+
+
+
+{{ endblock }}
+
+
+{{ block scripts }}
+<script>
+    let allRadios = document.querySelectorAll('input[type=radio]')
+    function submitForm() {
+        let form = document.getElementById('form');
+        if (form.reportValidity()) {
+            let switchingPoint = document.getElementById('id_switching_point');
+
+            let allChoicesAreOnLeft = true;
+            for (let radio of allRadios) {
+                if (radio.value === 'right' && radio.checked) {
+                    switchingPoint.value = radio.dataset.amount;
+                    allChoicesAreOnLeft = false;
+                    break;
+                }
+            }
+            if (allChoicesAreOnLeft) {
+                // '9999' represents the valueInput if the user didn't click the right side for any choice
+                // it means their switching point is off the scale. you can change 9999 to some other valueInput
+                // that is larger than any right-hand-side choice.
+                switchingPoint.value = '32';
+            }
+            form.submit();
+        }
+    }
+
+    function onRadioClick(evt) {
+        let clickedRadio = evt.target;
+        let afterClickedRadio = false;
+        let clickedRightRadio = clickedRadio.value === 'right';
+
+        for (let aRadio of allRadios) {
+            if (aRadio === clickedRadio) {
+                afterClickedRadio = true;
+                continue;
+            }
+            if (clickedRightRadio && afterClickedRadio && aRadio.value === 'right') {
+                aRadio.checked = true;
+            }
+            if (!clickedRightRadio && !afterClickedRadio && aRadio.value === 'left') {
+                aRadio.checked = true;
+            }
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        for (let radio of document.querySelectorAll('input[type=radio]')) {
+            radio.onchange = onRadioClick;
+        }
+    });
+
+</script>
+{{ endblock }}
